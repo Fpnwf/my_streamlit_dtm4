@@ -63,10 +63,6 @@ pca_result = pca.fit_transform(X_scaled)
 route_group['PCA1'] = pca_result[:, 0]
 route_group['PCA2'] = pca_result[:, 1]
 
-# แสดงผล
-st.subheader("📊 Clustered Flight Routes")
-st.dataframe(route_group[['Route', 'avg_passenger_per_month', 'std_passenger', 'total_passenger', 'Cluster']])
-
 # กราฟ Scatter Plot
 fig, ax = plt.subplots(figsize=(8, 5))
 sns.scatterplot(data=route_group, x='PCA1', y='PCA2', hue='Cluster', palette='tab10', s=100)
